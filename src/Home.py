@@ -19,7 +19,7 @@ def main():
     # Sidebar links
     with st.sidebar:
         st.markdown(f"""
-        MyPage v{__version__}
+        MyDash v{__version__}
         ## Quick Links
 
         - [GitHub](https://github.com/)
