@@ -1,0 +1,15 @@
+[Unit]
+Description=MyDash Service
+After=network.target
+
+[Service]
+User=tony
+WorkingDirectory=<path to MyDash project>
+ExecStart=<path to MyDash project>/venv/bin/streamlit run <path to MyDash project>/Home.py
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutSec=5
+
+[Install]
+WantedBy=multi-user.target
