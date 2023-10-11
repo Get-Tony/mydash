@@ -19,7 +19,7 @@ def main():
         if not pages:
             st.warning("No pages found in the Data folder.")
         else:
-            st.set_page_config(page_title="Notes", page_icon=":coffee:")
+            st.set_page_config(page_title="Notes", page_icon=":coffee:", layout="wide")
             selected_page = st.sidebar.selectbox("Select a file", pages)
             filepath = os.path.join(
                 data_dir,

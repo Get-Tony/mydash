@@ -3,8 +3,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 import feedparser
 
-__version__ = "0.3.6"
-
 def parse_feed(feed):
     """Parse RSS feed."""
     with st.spinner(f"Loading {feed} ..."):
@@ -14,21 +12,24 @@ def parse_feed(feed):
 
 def main():
     """Home page."""
-    st.set_page_config(page_title="Home", page_icon=":coffee:")
+    st.set_page_config(page_title="Home", page_icon=":coffee:", layout="wide")
 
     # Sidebar links
     with st.sidebar:
-        st.markdown(f"""
-        MyDash v{__version__}
+        st.markdown("""
         ## Quick Links
 
         - [GitHub](https://github.com/)
-        - [YouTube](https://www.youtube.com/)
+        - [YouTube](https://www.youtube.com/)""")
 
-        ## Google Search""")
-        # Google search
-        components.html("""
-            <script async src="https://cse.google.com/cse.js?cx=03208d414f651405c"></script>
+        # Clock widget
+        components.html("""<div style="text-align:center;padding:1em 0;">
+            <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=small&timezone=Europe%2FBerlin" width="100%" height="90" frameborder="0" seamless></iframe>
+            </div>""")
+
+        st.markdown("## Google Search")
+        # Google search widget
+        components.html("""<script async src="https://cse.google.com/cse.js?cx=03208d414f651405c"></script>
             <div class="gcse-searchbox-only"></div>""")
 
     # Main page title
